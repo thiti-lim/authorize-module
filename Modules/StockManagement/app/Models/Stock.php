@@ -4,7 +4,7 @@ namespace Modules\StockManagement\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\StockManagement\Database\factories\StockFactory;
+use Modules\StockManagement\Database\Factories\StockFactory;
 
 class Stock extends Model
 {
@@ -13,8 +13,8 @@ class Stock extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = [];
-    
+    protected $fillable = ['code', 'name'];
+
     protected static function newFactory(): StockFactory
     {
         return StockFactory::new();

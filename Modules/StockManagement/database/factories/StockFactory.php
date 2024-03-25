@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\StockManagement\database\factories;
+namespace Modules\StockManagement\Database\Factories;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -17,7 +17,7 @@ class StockFactory extends Factory
      */
     public function definition(): array
     {
-        $code = Str::random(2) . '-' . fake()->numberBetween(1, 9);
+        $code = strtoupper(Str::random(2)) . '-' . fake()->numberBetween(1, 9);
         return [
             'code' => $code,
             'name' => 'คลัง ' . $code

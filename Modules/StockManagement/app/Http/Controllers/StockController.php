@@ -14,7 +14,7 @@ class StockController extends Controller
 
     public function index()
     {
-        return $this->success(data: []);
+        return $this->success(data: Stock::all());
     }
 
     public function store(StockRequest $request)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\StockManagement\database\seeders;
+namespace Modules\StockManagement\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Modules\StockManagement\Models\Stock;
