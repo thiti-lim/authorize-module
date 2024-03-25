@@ -13,7 +13,3 @@ use Modules\StockManagement\Http\Controllers\StockManagementController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group([], function () {
-    Route::resource('stockmanagement', StockManagementController::class)->names('stockmanagement');
-});

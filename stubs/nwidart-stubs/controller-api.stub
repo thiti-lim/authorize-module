@@ -15,17 +15,17 @@ class $CLASS$ extends Controller
         return $this->success(data: []);
     }
 
-    public function store($NAME$Request $request)
+    public function store(Request $request)
     {
         return $this->success(data: []);
     }
 
-    public function show($NAME$ $$LOWER_NAME$)
+    public function show($id)
     {
         return $this->success(data: []);
     }
 
-    public function destroy($NAME$ $$LOWER_NAME$)
+    public function destroy($id)
     {
         return $this->success([]);
     }
