@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Stock\Http\Controllers\StockController;
+use Modules\StockManagement\Http\Controllers\StockManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +15,5 @@ use Modules\Stock\Http\Controllers\StockController;
 */
 
 Route::group([], function () {
-    Route::resource('stock', StockController::class)->names('stock');
+    Route::resource('stockmanagement', StockManagementController::class)->names('stockmanagement');
 });

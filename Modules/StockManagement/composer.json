@@ -1,5 +1,5 @@
 {
-    "name": "nwidart/stock",
+    "name": "nwidart/stockmanagement",
     "description": "",
     "authors": [
         {
@@ -17,14 +17,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Stock\\": "app/",
-            "Modules\\Stock\\Database\\Factories\\": "database/factories/",
-            "Modules\\Stock\\Database\\Seeders\\": "database/seeders/"
+            "Modules\\StockManagement\\": "app/",
+            "Modules\\StockManagement\\Database\\Factories\\": "database/factories/",
+            "Modules\\StockManagement\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Modules\\Stock\\Tests\\": "tests/"
+            "Modules\\StockManagement\\Tests\\": "tests/"
         }
     }
 }

@@ -1,15 +1,15 @@
 <?php
 
-namespace Modules\Stock\Providers;
+namespace Modules\StockManagement\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-class StockServiceProvider extends ServiceProvider
+class StockManagementServiceProvider extends ServiceProvider
 {
-    protected string $moduleName = 'Stock';
+    protected string $moduleName = 'StockManagement';
 
-    protected string $moduleNameLower = 'stock';
+    protected string $moduleNameLower = 'stockmanagement';
 
     /**
      * Boot the application events.

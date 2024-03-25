@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Stock\Http\Controllers\StockController;
+use Modules\StockManagement\Http\Controllers\StockManagementController;
 
 /*
  *--------------------------------------------------------------------------
@@ -15,5 +15,5 @@ use Modules\Stock\Http\Controllers\StockController;
 */
 
 Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('stock', StockController::class)->names('stock');
+    Route::apiResource('stockmanagement', StockManagementController::class)->names('stockmanagement');
 });
