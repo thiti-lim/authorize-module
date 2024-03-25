@@ -3,6 +3,7 @@
 namespace Modules\StockManagement\database\seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\StockManagement\Models\Stock;
 
 class StockSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class StockSeeder extends Seeder
      */
     public function run(): void
     {
-        // $this->call([]);
+        Stock::factory()->count(10)->create();
     }
 }

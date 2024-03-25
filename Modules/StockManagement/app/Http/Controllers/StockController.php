@@ -27,7 +27,7 @@ class StockController extends Controller
         return $this->success(data: []);
     }
 
-    public function destroy(StockRequest $request)
+    public function destroy(Stock $stock)
     {
         return $this->success([]);
     }
