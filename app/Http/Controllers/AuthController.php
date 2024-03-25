@@ -13,24 +13,11 @@ use App\Http\Requests\RegisterRequest;
 class AuthController extends Controller
 {
     use HttpResponses;
-    public function register(RegisterRequest $request)
-    {
-        $request->validated($request->all());
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
 
-        ]);
-        return $this->success([
-            'user' => $user,
-            'token' => $user->createToken('Token ' . $user->email)->plainTextToken
-        ]);
-    }
     public function login(LoginRequest $request)
     {
         $request->validated($request->all());
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        if (!Auth::attempt($request->only('username', 'password'))) {
             return $this->error(data: [], message: 'Login failed');
         }
 
