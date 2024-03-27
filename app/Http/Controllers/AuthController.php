@@ -21,15 +21,20 @@ class AuthController extends Controller
             return $this->error(data: [], message: 'Login failed');
         }
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('username', $request->username)->first();
         return $this->success(data: [
             'user' => $user,
-            'token' => $user->createToken('TOKEN ' . $user->email)->plainTextToken
+            'token' => $user->createToken('TOKEN ' . $user->username)->plainTextToken
         ]);
     }
 
     public function logout()
     {
         return $this->success(data: ['user' => 'logout']);
+    }
+
+    public function user()
+    {
+        return 'user';
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use Symfony\Component\HttpFoundation\Response;
+
 trait HttpResponses
 {
     protected function success($data)
@@ -10,7 +12,7 @@ trait HttpResponses
             'status' => 'OK',
             'data' => $data,
 
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     protected function error($data, $message)
@@ -20,7 +22,7 @@ trait HttpResponses
             'message' => $message,
             'data' => $data,
 
-        ], 400);
+        ], Response::HTTP_BAD_REQUEST);
     }
     protected function unauthenticated($data)
     {
@@ -28,7 +30,7 @@ trait HttpResponses
             'status' => 'User not authenticated',
             'data' => $data,
 
-        ], 402);
+        ], Response::HTTP_UNAUTHORIZED);
     }
     protected function unauthorized($data)
     {
@@ -36,7 +38,7 @@ trait HttpResponses
             'status' => 'User not authorized',
             'data' => $data,
 
-        ], 403);
+        ], Response::HTTP_FORBIDDEN);
     }
     protected function notFound($data)
     {
@@ -44,6 +46,6 @@ trait HttpResponses
             'status' => 'Not found',
             'data' => $data,
 
-        ], 404);
+        ], RESPONSE::HTTP_NOT_FOUND);
     }
 }
