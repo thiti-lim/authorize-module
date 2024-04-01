@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ModuleResource extends JsonResource
+class PermissionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,7 +16,7 @@ class ModuleResource extends JsonResource
     {
         return [
             'code' => $this->code,
-            'name' => $this->name,
+            'name' => $this->name
         ];
     }
 }
