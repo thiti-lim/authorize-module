@@ -1,0 +1,11 @@
+{
+    "name": "Engineering",
+    "alias": "engineering",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Engineering\\Providers\\EngineeringServiceProvider"
+    ],
+    "files": []
+}

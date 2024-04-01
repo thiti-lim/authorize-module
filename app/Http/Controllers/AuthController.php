@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Traits\HttpResponses;
 use App\Http\Requests\LoginRequest;
+use Nwidart\Modules\Facades\Module;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
@@ -22,10 +24,8 @@ class AuthController extends Controller
         }
 
         $user = User::where('username', $request->username)->first();
-        return $this->success(data: [
-            'user' => $user,
-            'token' => $user->createToken('TOKEN ' . $user->username)->plainTextToken
-        ]);
+        $token = $user->createToken('TOKEN ' . $user->username)->plainTextToken;
+        return response()->json(data: ['user' => $user, 'token' => $token]);
     }
 
     public function logout()
@@ -35,6 +35,6 @@ class AuthController extends Controller
 
     public function user()
     {
-        return 'user';
+        return response()->json(['user' => new UserResource(Auth::user())]);
     }
 }
