@@ -2,5 +2,6 @@
     "StockManagement": true,
     "Planning": true,
     "Lab": true,
-    "Engineering": true
+    "Engineering": true,
+    "Production": true
 }

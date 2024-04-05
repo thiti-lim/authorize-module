@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Lab\Http\Controllers\LabController;
-use Modules\Planning\Http\Controllers\MoController;
 use Modules\Planning\Http\Controllers\PlanningController;
 
 /*
@@ -19,5 +17,3 @@ use Modules\Planning\Http\Controllers\PlanningController;
 Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
     Route::apiResource('planning', PlanningController::class)->names('planning');
 });
-
-Route::get('mos', [LabController::class, 'index']);
