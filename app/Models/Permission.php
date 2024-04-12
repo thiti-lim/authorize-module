@@ -14,11 +14,5 @@ class Permission extends Model
         'code',
         'name'
     ];
-
-    public function roles(): BelongsToMany
-    {
-        return $this->belongsToMany(Role::class);
-    }
-
     public $timestamps = false;
 }

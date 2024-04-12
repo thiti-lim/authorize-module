@@ -16,6 +16,41 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $name
+ * @property string $module_id
+ * @property-read \App\Models\Module $module
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereModuleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereName($value)
+ */
+	class Menu extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property string $id
+ * @property string $name
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Menu> $menus
+ * @property-read int|null $menus_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Module newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Module newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Module query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereName($value)
+ */
+	class Module extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $code
  * @property string $name
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Role> $roles

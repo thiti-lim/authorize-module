@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Planning\Http\Controllers\MoveStockController;
 use Modules\Planning\Http\Controllers\PlanningController;
 
 /*
@@ -12,8 +13,8 @@ use Modules\Planning\Http\Controllers\PlanningController;
  * routes are loaded by the RouteServiceProvider within a group which
  * is assigned the "api" middleware group. Enjoy building your API!
  *
-*/
+ */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('planning', PlanningController::class)->names('planning');
+Route::middleware(['auth:sanctum'])->prefix('planning')->group(function () {
+    Route::apiResource('move-stock', MoveStockController::class);
 });

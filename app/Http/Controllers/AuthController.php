@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Module;
 use Illuminate\Http\Request;
 use App\Traits\HttpResponses;
 use App\Http\Requests\LoginRequest;
-use Nwidart\Modules\Facades\Module;
+use App\Http\Resources\RoleResource;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Resources\ModuleResource;
+use App\Http\Resources\ModuleCollection;
+use App\Http\Resources\PermissionResource;
 
 class AuthController extends Controller
 {
@@ -24,7 +28,7 @@ class AuthController extends Controller
         }
 
         $user = User::where('username', $request->username)->first();
-        $token = $user->createToken('TOKEN ' . $user->username)->plainTextToken;
+        $token = $user->createToken('TOKEN ' . $user->username, ['*'], now()->addWeek())->plainTextToken;
         return response()->json(data: ['user' => $user, 'token' => $token]);
     }
 
@@ -35,6 +39,15 @@ class AuthController extends Controller
 
     public function user()
     {
-        return response()->json(['user' => new UserResource(Auth::user())]);
+        return response()->json(data: ['user' => new UserResource(Auth::user())]);
     }
+    public function modules()
+    {
+        return response()->json(data: ['modules' => new ModuleCollection(Auth::user()->role->modules)]);
+    }
+    public function module(Module $module)
+    {
+        return response()->json(data: ['module' => new ModuleResource($module)]);
+    }
+
 }

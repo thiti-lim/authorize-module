@@ -33,10 +33,13 @@ class MakeMenu extends Command
         $module = Module::findOrFail($this->option('module'));
 
         Menu::create(['name' => $dbName, 'module_id' => $module->id]);
-
-
-
-
-
+        $this->call('module:make-model', [
+            'model' => $menuName,
+            'module' => $module->name,
+            '--controller' => true,
+            '--migration' => true,
+            '--request' => true,
+        ]);
+        $this->call('module:make-factory', ['name' => $menuName, 'module' => $module->name]);
     }
 }

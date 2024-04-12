@@ -20,4 +20,5 @@ class Module extends Model
         return $this->hasMany(Menu::class);
     }
 
+
 }
