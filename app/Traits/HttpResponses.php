@@ -8,11 +8,7 @@ trait HttpResponses
 {
     protected function success($data)
     {
-        return response()->json([
-            'status' => 'OK',
-            'data' => $data,
-
-        ], Response::HTTP_OK);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     protected function error($data, $message)
@@ -23,14 +19,6 @@ trait HttpResponses
             'data' => $data,
 
         ], Response::HTTP_BAD_REQUEST);
-    }
-    protected function unauthenticated($data)
-    {
-        return response()->json([
-            'status' => 'User not authenticated',
-            'data' => $data,
-
-        ], Response::HTTP_UNAUTHORIZED);
     }
     protected function unauthorized($data)
     {

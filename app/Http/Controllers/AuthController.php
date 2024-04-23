@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         $user = User::where('username', $request->username)->first();
         $token = $user->createToken('TOKEN ' . $user->username, ['*'], now()->addWeek())->plainTextToken;
-        return response()->json(data: ['user' => $user, 'token' => $token]);
+        return $this->success(['user' => $user, 'token' => $token]);
     }
 
     public function logout()
@@ -39,15 +39,14 @@ class AuthController extends Controller
 
     public function user()
     {
-        return response()->json(data: ['user' => new UserResource(Auth::user())]);
+        if (!Auth::check()) {
+            return $this->unauthenticated(data: []);
+        }
+        return $this->success(['user' => new UserResource(Auth::user())]);
     }
-    public function modules()
+    public function role()
     {
-        return response()->json(data: ['modules' => new ModuleCollection(Auth::user()->role->modules)]);
-    }
-    public function module(Module $module)
-    {
-        return response()->json(data: ['module' => new ModuleResource($module)]);
+        return $this->success(['modules' => new RoleResource(Auth::user()->role)]);
     }
 
 }

@@ -17,7 +17,7 @@ class MenuResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'permissions' => PermissionResource::collection($this->permissions(Auth::user()->role))
+            'permissions' => $this->permissions(Auth::user()->role)->pluck('code')->all()
         ];
     }
 }
